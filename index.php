@@ -20,13 +20,13 @@
                 "name" => "Do Androids Dream of Electric Sheep",
                 "author" => "Jordan",
                 "purchaseUrl" => "http://example.com",
-                "releaseYear" => "2003"
+                "releaseYear" => "1940"
             ],
             [
                 "name" => "The Langoliers",
                 "author" => "Jordan",
                 "purchaseUrl" => "http://example.com",
-                "releaseYear" => "2015"
+                "releaseYear" => "1950"
             ],[
                 "name" => "Hail Mary",
                 "author" => "Gordan",
@@ -48,7 +48,7 @@
         }
 
         $filteredBooks = filter($books, function ($book) {
-            return $book['author'] === 'Jordan';
+            return $book['releaseYear'] >= 1950 && $book['releaseYear'] <= 2020;
         });
 
         $movies = [
