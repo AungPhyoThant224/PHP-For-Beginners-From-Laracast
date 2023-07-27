@@ -27,15 +27,67 @@
                 "author" => "Jordan",
                 "purchaseUrl" => "http://example.com",
                 "releaseYear" => "2015"
+            ],[
+                "name" => "Hail Mary",
+                "author" => "Gordan",
+                "purchaseUrl" => "http://example.com",
+                "releaseYear" => "2015"
             ]
-        ]
+        ];
+
+        function filterByAuthor($books, $author){
+            $filteredBooks = [];
+
+            foreach ($books as $book){
+                if($book['author'] === $author){
+                    $filteredBooks[] = $book;
+                }
+            }
+
+            return $filteredBooks;
+        }
+
+        $movies = [
+            [
+                "name" => "Titanic",
+                "releaseDate" => 1998
+            ],
+            [
+                "name" => "Iron-man",
+                "releaseDate" => 2001
+            ],
+            [
+                "name" => "Avengers:Endgame",
+                "releaseDate" => 2016
+            ],
+        ];
+
+        function filterMoviesByDate($movies, $releaseDate){
+            $filterMovies = [];
+
+            foreach ($movies as $movie){
+                if($movie['releaseDate'] > $releaseDate){
+                    $filterMovies[] = $movie;
+                }
+            }
+
+            return $filterMovies;
+        }
     ?>
 
     <ul>
-        <?php foreach ($books as $book) : ?>
-            <a href=<?= $book['purchaseUrl'] ?>>
-                <li><?= "{$book['name']} {$book['releaseYear']}" ?></li>
-            </a>
+        <?php foreach (filterByAuthor($books, "Gordan") as $book) : ?>
+            <li>
+                <a href=<?= $book['purchaseUrl'] ?>>
+                    <?= "{$book['name']} {$book['releaseYear']} - By {$book['author']}" ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+
+        <?php foreach(filterMoviesByDate($movies, 2000) as $movie): ?>
+            <li>
+                <?= $movie["name"] ?>
+            </li>
         <?php endforeach; ?>
     </ul>
 
