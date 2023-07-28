@@ -2,21 +2,9 @@
 require 'functions.php';
 //require 'router.php';
 
-$dsn = "mysql:host=localhost;port=3306;dbname=myapp;user=root;charset=utf8mb4";
-$pdo = new PDO($dsn);
+require 'Database.php';
 
-$statement = $pdo->prepare("select * from posts");
-$statement->execute();
+$db = new Database();
+$posts = $db->query("select * from posts")->fetchAll(PDO::FETCH_ASSOC);
 
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-foreach ($posts as $post){
-    echo "<li>".$post['title']."</li>";
-}
-
-$getPostById = $pdo->prepare("select * from posts where id=1");
-$getPostById->execute();
-
-$post = $getPostById->fetch(PDO::FETCH_ASSOC);
-
-echo "<h1>". $post["title"] . "</h1>";
+dd($posts);
