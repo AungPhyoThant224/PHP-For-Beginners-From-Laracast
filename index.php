@@ -4,7 +4,12 @@ require 'functions.php';
 
 require 'Database.php';
 
-$db = new Database();
-$posts = $db->query("select * from posts")->fetchAll(PDO::FETCH_ASSOC);
+$config = require ('config.php');
+
+$id = $_GET['id'];
+$query = "select * from posts where id = :id";
+$db = new Database($config);
+
+$posts = $db->query($query, ['id' => $id])->fetchAll();
 
 dd($posts);
