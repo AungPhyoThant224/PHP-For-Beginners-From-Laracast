@@ -18,9 +18,9 @@ function routeToController($uri, $routes){
     }
 }
 
-function abort(){
-    http_response_code(404);
-    require 'views/404.php';
+function abort($responseCode = 404){
+    http_response_code($responseCode);
+    require "views/${responseCode}.php";
     die();
 }
 
