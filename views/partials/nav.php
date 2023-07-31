@@ -13,7 +13,7 @@
                         <a href="/about" class="<?= urlIs('/about') ? 'bg-gray-900 text-white' : 'text-gray-300'  ?>  hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About</a>
                         <a href="/notes" class="<?= urlIs('/notes') ? 'bg-gray-900 text-white' : 'text-gray-300'  ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Notes</a>
                         <a href="/contact" class="<?= urlIs('/contact') ? 'bg-gray-900 text-white' : 'text-gray-300'  ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact</a>
-                        <a href="/ourMission" class="<?= urlIs('/ourMission') ? 'bg-gray-900 text-white' : 'text-gray-300'  ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Our Mission</a>
+                        <a href="/our-mission" class="<?= urlIs('/our-mission') ? 'bg-gray-900 text-white' : 'text-gray-300'  ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Our Mission</a>
                     </div>
                 </div>
             </div>
