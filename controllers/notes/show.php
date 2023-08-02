@@ -1,5 +1,7 @@
 <?php
 
+use Core\Database;
+
 $heading = "Note";
 
 $config = require basePath('config.php');

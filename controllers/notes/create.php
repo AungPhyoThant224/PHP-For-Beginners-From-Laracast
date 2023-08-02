@@ -1,6 +1,7 @@
 <?php
 
-//require basePath('Validator.php');
+use Core\Database;
+use Core\Validator;
 
 $heading = "Crate Note";
 
