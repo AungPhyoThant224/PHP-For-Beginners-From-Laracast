@@ -1,16 +1,17 @@
 <?php
 
-require 'Validator.php';
+//require basePath('Validator.php');
 
 $heading = "Crate Note";
 
-$config = require 'config.php';
+$config = require basePath('config.php');
 $db = new Database($config);
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $errors = [];
+$errors = [];
 
-    if(! Validator::string($_POST['body'], 10, 1000)){
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+
+    if(! Validator::string($_POST['body'], 1, 1000)){
         $errors['body'] = 'A body is required';
     }
 
@@ -22,4 +23,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     }
 }
 
-require 'views/notes/create.view.php';
+view('notes/create.view.php',[
+    'heading' => $heading,
+    'errors' => $errors,
+]);

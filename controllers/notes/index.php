@@ -2,9 +2,12 @@
 
 $heading = "Notes";
 
-$config = require('config.php');
+$config = require basePath('config.php');
 $db = new Database($config);
 
 $notes = $db->query("select * from notes where userId = 1", [])->get();
 
-require 'views/notes/index.view.php';
+view('notes/index.view.php', [
+    'heading' => $heading,
+    'notes' => $notes,
+]);
