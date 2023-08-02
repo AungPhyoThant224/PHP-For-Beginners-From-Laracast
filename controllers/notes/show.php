@@ -7,11 +7,28 @@ $heading = "Note";
 $config = require basePath('config.php');
 $db = new Database($config);
 
-$note = $db->query("select * from notes where id = :id", ['id' => $_GET['id']])->findOrFail();
+$currentUserId = 1;
 
-authorize($note['userId'] === 1);
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-view('notes/show.view.php', [
-    'heading' => $heading,
-    'note' => $note,
-]);
+    $note = $db->query("select * from notes where id = :id", ['id' => $_GET['id']])->findOrFail();
+
+    authorize($note['userId'] === $currentUserId);
+
+    $db->query("delete from notes where id = :id", [
+        'id' => $_POST['id'],
+    ]);
+
+    header('location:/notes');
+    exit();
+}
+else{
+    $note = $db->query("select * from notes where id = :id", ['id' => $_GET['id']])->findOrFail();
+
+    authorize($note['userId'] === $currentUserId);
+
+    view('notes/show.view.php', [
+        'heading' => $heading,
+        'note' => $note,
+    ]);
+}
