@@ -17,4 +17,7 @@ $router -> get('/our-mission', 'controllers/our-mission.php');
 
 $router -> get('/notes', 'controllers/notes/index.php');
 $router -> get('/note', 'controllers/notes/show.php');
-$router -> get('/note/create', 'controllers/notes/create.php');
+$router -> delete('/note', 'controllers/notes/destory.php');
+
+$router -> get('/notes/create', 'controllers/notes/create.php');
+$router -> post('/notes', 'controllers/notes/store.php');
