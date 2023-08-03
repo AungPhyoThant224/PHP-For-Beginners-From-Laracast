@@ -24,3 +24,6 @@ $router -> patch('/note', 'controllers/notes/update.php');
 
 $router -> get('/notes/create', 'controllers/notes/create.php');
 $router -> post('/notes', 'controllers/notes/store.php');
+
+$router -> get('/register', 'controllers/register/create.php')->only('guest');
+$router -> post('/register', 'controllers/register/store.php');
