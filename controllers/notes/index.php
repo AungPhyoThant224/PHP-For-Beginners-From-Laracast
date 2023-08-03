@@ -1,11 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
 $heading = "Notes";
 
-$config = require basePath('config.php');
-$db = new Database($config);
+$db = App::container()->resolve(Database::class);
 
 $notes = $db->query("select * from notes where userId = 1", [])->get();
 

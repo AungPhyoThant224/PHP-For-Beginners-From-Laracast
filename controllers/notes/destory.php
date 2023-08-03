@@ -1,11 +1,11 @@
 <?php
 
+use Core\App;
 use Core\Database;
 
 $heading = "Note";
 
-$config = require basePath('config.php');
-$db = new Database($config);
+$db = App::container()->resolve(Database::class);
 
 $currentUserId = 1;
 
