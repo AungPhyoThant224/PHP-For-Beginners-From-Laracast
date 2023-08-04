@@ -17,7 +17,7 @@
                                         rows="3"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                         placeholder="Here's an idea for you note....."
-                                ><?= isset($_POST['body']) ? $_POST['body'] : "" ?></textarea>
+                                ><?= $_POST['body'] ?? "" ?></textarea>
                                 <?php if(isset($errors['body'])): ?>
                                     <p class="text-red-500 font-size-xs"><?= $errors['body']?></p>
                                 <?php endif; ?>
