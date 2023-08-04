@@ -7,7 +7,8 @@ use Core\Validator;
 class LoginForm
 {
     protected $errors = [];
-    public function validate($email, $password){
+    public function validate($email, $password): bool
+    {
         if(!Validator::email($email)){
             $this->errors['email'] = "Please provide a valid email address";
         }
@@ -21,5 +22,9 @@ class LoginForm
 
     public function errors(){
         return $this->errors;
+    }
+
+    public function error($key, $value){
+        $this->errors[$key] = $value;
     }
 }
