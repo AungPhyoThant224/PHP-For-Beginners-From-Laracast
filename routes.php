@@ -17,7 +17,7 @@ $router -> get('/our-mission', 'controllers/our-mission.php');
 
 $router -> get('/notes', 'controllers/notes/index.php');
 $router -> get('/note', 'controllers/notes/show.php');
-$router -> delete('/note', 'controllers/notes/destory.php');
+$router -> delete('/note', 'controllers/notes/destroy.php');
 
 $router -> get('/note/edit', 'controllers/notes/edit.php');
 $router -> patch('/note', 'controllers/notes/update.php');
@@ -27,3 +27,7 @@ $router -> post('/notes', 'controllers/notes/store.php');
 
 $router -> get('/register', 'controllers/register/create.php')->only('guest');
 $router -> post('/register', 'controllers/register/store.php');
+
+$router -> get('/login', 'controllers/sessions/create.php')->only('guest');
+$router -> post('/sessions', 'controllers/sessions/store.php')->only('guest');
+$router -> delete('/sessions', 'controllers/sessions/destroy.php')->only('auth');
