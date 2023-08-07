@@ -54,6 +54,10 @@ class Router{
         $this->abort();
     }
 
+    public function previousURI(){
+        return $_SERVER["HTTP_REFERER"];
+    }
+
     protected function abort($responseCode = RESPONSE::NOT_FOUND){
         http_response_code($responseCode);
         require basePath("views/{$responseCode}.php");
