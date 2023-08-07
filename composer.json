@@ -1,0 +1,16 @@
+{
+    "name": "close/demo",
+    "authors": [
+        {
+            "name": "Aung Phyo Thant",
+            "email": "aungphyothant224@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\" : "Core/",
+            "Http\\" : "Http/"
+        }
+    }
+}
